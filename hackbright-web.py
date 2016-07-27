@@ -44,14 +44,15 @@ def handle_student_add():
 
     return render_template("confirm_add.html", github=github)
 
-@app.route("/projects")
+@app.route("/project")
 def get_project():
     title = request.args.get('title')
     print "OMG THE TITLE --------", title
-    projects_info = hackbright.get_project_by_title(title)
-    print "HEY LOOK PROJECTS -----------", projects_info
+    project_info = hackbright.get_project_by_title(title)
+    title, description, max_grade = project_info
+    print "HEY LOOK PROJECTS -----------", project_info
 
-    return render_template("project_info.html", projects_info=projects_info)
+    return render_template("project_info.html", title=title, description=description, max_grade=max_grade)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
