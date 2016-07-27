@@ -1,0 +1,14 @@
+<!doctype html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<ul>
+    {% for title, description, max_grade in projects_info %}
+    <li> Title: {{ title }}, Description: {{ description }}, Maximum Grade: {{ max_grade }} </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
