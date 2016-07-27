@@ -10,5 +10,13 @@
     <li> Description: {{ description }} </li>
     <li> Maximum Grade: {{ max_grade }} </li>
 </ul>
+
+<h1> Student Grades </h1>
+<ul> 
+    {% for student, grade in students_grades %}
+    <li> Student's Github: {{ student }}, <br> Grade: {{ grade }} </li> <br>
+    {% endfor %}
+</ul>
+
 </body>
 </html>

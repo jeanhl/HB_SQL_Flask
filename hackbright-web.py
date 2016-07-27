@@ -47,12 +47,18 @@ def handle_student_add():
 @app.route("/project")
 def get_project():
     title = request.args.get('title')
-    print "OMG THE TITLE --------", title
+    
     project_info = hackbright.get_project_by_title(title)
     title, description, max_grade = project_info
-    print "HEY LOOK PROJECTS -----------", project_info
 
-    return render_template("project_info.html", title=title, description=description, max_grade=max_grade)
+    students_grades = hackbright.get_grades_by_title(title)
+
+
+    return render_template("project_info.html", 
+                            title=title, 
+                            description=description, 
+                            max_grade=max_grade,
+                            students_grades=students_grades)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
