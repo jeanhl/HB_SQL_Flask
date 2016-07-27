@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, session
+from flask import Flask, request, render_template
 
 import hackbright
 
@@ -39,13 +39,7 @@ def handle_student_add():
 
     hackbright.make_new_student(first, last, github)
 
-    return render_template("student_info.html", first=first, last=last, github=github)
-
-# @app.route("/confirm-add")
-# def confirm_add_student():
-# """Confirm that the user has added a student successfully."""
-
-# return render_template("student_info.html", first=first, last=last, github=github)
+    return render_template("confirm_add.html", github=github)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)
